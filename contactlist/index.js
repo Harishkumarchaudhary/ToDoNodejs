@@ -12,6 +12,14 @@ app.get('/', function(req, res){
     return res.render('home', {"title": "I have send the value of title that will be rendered in Browser"});
 })
 
+//Controller to get playground
+app.get('/playground', function(req, res){
+    return res.render('playground', 
+    {
+      "title": "Play with ejs"
+    });
+});
+
 app.listen(port, function(err){
     if (err) {
         console.log('Error', err);
