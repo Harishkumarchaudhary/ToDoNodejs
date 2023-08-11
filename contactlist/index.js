@@ -9,7 +9,7 @@ app.set('views', path.join(__dirname, 'views')); //It will looks for views under
 app.get('/', function(req, res){
     //console.log(__dirname); //Directory from which server started
     //res.send('<h1>Cool it is running</h1>')
-    return res.render('home');
+    return res.render('home', {"title": "I have send the value of title that will be rendered in Browser"});
 })
 
 app.listen(port, function(err){
