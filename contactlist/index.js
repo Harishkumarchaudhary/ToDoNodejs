@@ -9,14 +9,15 @@ app.set('views', path.join(__dirname, 'views')); //It will looks for views under
 app.get('/', function(req, res){
     //console.log(__dirname); //Directory from which server started
     //res.send('<h1>Cool it is running</h1>')
-    return res.render('home', {"title": "I have send the value of title that will be rendered in Browser"});
+    return res.render('home', {
+        title: "I have send the value of title that will be rendered in Browser"
+    });
 })
 
 //Controller to get playground
 app.get('/playground', function(req, res){
-    return res.render('playground', 
-    {
-      "title": "Play with ejs"
+    return res.render('playground', {
+      title: "Play with ejs"
     });
 });
 
