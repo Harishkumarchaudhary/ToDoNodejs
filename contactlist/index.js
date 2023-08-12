@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); //It will looks for views under __dirname
+app.use(express.urlencoded());
 
 
 var contactList = [
@@ -39,7 +40,13 @@ app.get('/playground', function(req, res){
 });
 
 app.post('/create-contact', function(req, res){
-    return res.redirect('/playground');
+   // return res.redirect('/playground');
+   contactList.push({
+     name: req.body.name,
+     phone: req.body.phone
+   });
+   //or contactList.push(req.body);
+   return res.redirect('/') //or res.redirect('back') in case or longer URLs;
 })
 
 app.listen(port, function(err){
