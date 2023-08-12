@@ -38,6 +38,10 @@ app.get('/playground', function(req, res){
     });
 });
 
+app.post('/create-contact', function(req, res){
+    return res.redirect('/playground');
+})
+
 app.listen(port, function(err){
     if (err) {
         console.log('Error', err);
