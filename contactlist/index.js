@@ -6,11 +6,28 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); //It will looks for views under __dirname
 
+
+var contactList = [
+    {
+        name: "Harish",
+        phone: "11111111"
+    },
+    {
+        name: "Kong",
+        phone: "11110001"
+    },
+    {
+        name: "Hong",
+        phone: "11110001"
+    }
+]
+
 app.get('/', function(req, res){
     //console.log(__dirname); //Directory from which server started
     //res.send('<h1>Cool it is running</h1>')
     return res.render('home', {
-        title: "I have send the value of title that will be rendered in Browser"
+        title: "I have send the value of title that will be rendered in Browser",
+        contact_list: contactList
     });
 })
 
