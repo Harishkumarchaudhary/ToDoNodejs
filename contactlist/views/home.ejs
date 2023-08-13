@@ -15,16 +15,23 @@
             <i class="fas fa-address-book"></i> My Contacts List
         </h1>
         <ul>
-            <% for (let i of contact_list) {%>
-                <li>
-                   <p>
-                      <%= i.name %>
-                   </p>
-                   <p>
-                    <%= i.phone %>
-                   </p>
-                </li>
-            <% } %>
+            <div class="contacts-container">
+                <% for (let i of contact_list) {%>
+                    <li>
+                       <div class="contact-details">
+                        <p>
+                            <%= i.name %>
+                         </p>
+                         <p>
+                          <%= i.phone %>
+                         </p>
+                       </div>
+                       <div class="delete-contact">
+                         <a href="/delete-contact/?phone= <%= i.phone%>"><button>X</button></a>
+                       </div>
+                    </li>
+                <% } %>
+            </div>
         </ul>
 
         <form action="/create-contact" method="post">

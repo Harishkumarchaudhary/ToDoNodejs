@@ -8,3 +8,20 @@ body {
     margin-top: 25px;
     color: grey;
 }
+
+ul {
+    list-style-type: none;
+}
+
+.contacts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: lightblue;
+}
+
+ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

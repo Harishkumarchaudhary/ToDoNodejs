@@ -48,14 +48,27 @@ app.get('/', function(req, res){
         title: "I have send the value of title that will be rendered in Browser",
         contact_list: contactList
     });
-})
+});
+
+//Through URL params
+// app.get('/delete-contact/:phone', function(req, res){
+//     console.log(req.params);
+//     console.log(req.params.phone);
+// });
+
+//Now through query params
+app.get('/delete-contact/', function(req, res){
+    console.log(req.query);
+    console.log(req.query.phone);
+});
+
 
 //Controller to get playground
-app.get('/playground', function(req, res){
-    return res.render('playground', {
-      title: "Play with ejs"
-    });
-});
+// app.get('/playground', function(req, res){
+//     return res.render('playground', {
+//       title: "Play with ejs"
+//     });
+// });
 
 app.post('/create-contact', function(req, res){
    // return res.redirect('/playground');
