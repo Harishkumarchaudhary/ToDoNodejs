@@ -23,9 +23,27 @@ var contactList = [
     }
 ]
 
+app.use(express.static('assets'));
+
+//middleware-1
+// app.use(function(req, res, next){
+//     req.myname = 'Harish'; //Changing request in middleware
+//     //console.log('Middleware-1 is called');
+//     next();
+// })
+
+
+// //middleware-2
+// app.use(function(req, res, next){
+//     console.log('My name in MW-2', req.myname);
+//     //console.log('Middleware-2 is called');
+//     next();
+// })
+
 app.get('/', function(req, res){
     //console.log(__dirname); //Directory from which server started
     //res.send('<h1>Cool it is running</h1>')
+    //console.log('My name in controller', req.myname);
     return res.render('home', {
         title: "I have send the value of title that will be rendered in Browser",
         contact_list: contactList
