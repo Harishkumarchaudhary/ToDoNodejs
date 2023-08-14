@@ -15,7 +15,7 @@ var contactList = [
     },
     {
         name: "Kong",
-        phone: "11110001"
+        phone: "1111001"
     },
     {
         name: "Hong",
@@ -59,7 +59,15 @@ app.get('/', function(req, res){
 //Now through query params
 app.get('/delete-contact/', function(req, res){
     console.log(req.query);
-    console.log(req.query.phone);
+    
+    let phone = req.query.phone;
+
+    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+    if (contactIndex != -1) {
+        contactList.splice(contactIndex, 1);
+    }
+    return res.redirect('back');
+    
 });
 
 
