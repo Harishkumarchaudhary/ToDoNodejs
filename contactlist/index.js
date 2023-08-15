@@ -2,7 +2,9 @@ const express = require('express');
 const port = 8000;
 const path = require('path');
 
+const Contact = require('./models/contact');
 const db = require('./config/mongoose');
+
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); //It will looks for views under __dirname
