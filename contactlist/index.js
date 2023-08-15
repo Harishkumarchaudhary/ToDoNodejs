@@ -47,9 +47,20 @@ app.get('/', function(req, res){
     //console.log(__dirname); //Directory from which server started
     //res.send('<h1>Cool it is running</h1>')
     //console.log('My name in controller', req.myname);
-    return res.render('home', {
-        title: "I have send the value of title that will be rendered in Browser",
-        contact_list: contactList
+    // return res.render('home', {
+    //     title: "I have send the value of title that will be rendered in Browser",
+    //     contact_list: contactList
+    // });
+
+    //Fetch from db now
+    Contact.find({}).then((contacts)=>{
+        return res.render('home', {
+            title: "My Contact List",
+            contact_list: contacts
+        });
+    }).catch((err)=>{
+        console.log('error in fetching contacts from db');
+        return;
     });
 });
 
