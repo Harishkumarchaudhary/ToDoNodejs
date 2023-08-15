@@ -83,12 +83,23 @@ app.get('/delete-contact/', function(req, res){
 
 app.post('/create-contact', function(req, res){
    // return res.redirect('/playground');
-   contactList.push({
-     name: req.body.name,
-     phone: req.body.phone
-   });
+//    contactList.push({
+//      name: req.body.name,
+//      phone: req.body.phone
+//    });
    //or contactList.push(req.body);
-   return res.redirect('/') //or res.redirect('back') in case or longer URLs;
+
+   Contact.create({
+    name: req.body.name,
+    phone: req.body.phone
+   }).then((newContact)=>{
+       console.log('****', newContact);
+       return res.redirect('/')
+   }).catch((err)=>{
+       console.log('Error in creating contact in Db', err);
+       return;
+   });
+   //return res.redirect('/') //or res.redirect('back') in case or longer URLs;
 })
 
 app.listen(port, function(err){
