@@ -74,13 +74,27 @@ app.get('/', function(req, res){
 app.get('/delete-contact/', function(req, res){
     console.log(req.query);
     
-    let phone = req.query.phone;
+    // let phone = req.query.phone;
 
-    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
-    if (contactIndex != -1) {
-        contactList.splice(contactIndex, 1);
-    }
-    return res.redirect('back');
+    // let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+    // if (contactIndex != -1) {
+    //     contactList.splice(contactIndex, 1);
+    // }
+    // return res.redirect('back');
+
+    //Db ->
+    //Get objectId from db (_id)
+    let id = req.query.id;
+
+    //find contact in db using id and delete it 
+
+    Contact.findByIdAndDelete(id)
+    .then(()=>{
+        console.log('Contact deleted successfully');
+        return res.redirect('back');
+    }).catch((err)=>{
+        console.log('Error in deleting the object from db', err);
+    });
     
 });
 
